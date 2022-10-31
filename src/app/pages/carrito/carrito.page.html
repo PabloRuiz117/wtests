@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>`
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!existenProductos">
+    <ion-label>
+      <p>No hay nada por ordenar</p>
+    </ion-label>
+  </div>
+
+  <ng-container *ngIf="existenProductos">
+    listar productos
+  </ng-container>
+
+
+
+
+
+</ion-content>

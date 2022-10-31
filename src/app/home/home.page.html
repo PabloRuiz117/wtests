@@ -3,18 +3,41 @@
     <ion-title>
       Blank
     </ion-title>
+
+    <ion-button color="dark" slot="end" fill="clear" [routerLink]="['/carrito', 2]">
+      <ion-badge color="primary" class="ion-margin-end">1</ion-badge>
+      <ion-icon name="briefcase-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h2 class="ion-text-center ion-margin ion-padding">Listado Herramientas</h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+  <div *ngIf="herramientas.length === 0">
+    <p>No hay Herramientas</p>
   </div>
+
+  <ng-container *ngIf="herramientas.length > 0">
+
+
+    <ion-card *ngFor="let herramienta of herramientas">
+      <img alt="Silhouette of mountains" [src]="herramienta.imagenUrl" />
+      <ion-card-header>
+        <ion-card-title>{{ herramienta.nombre }}</ion-card-title>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, placeat dolore ad minima officiis,
+          tenetur laudantium nemo, dolorum maiores reprehenderit ut fugiat vel. Repellat animi incidunt ex magnam enim
+          laudantium!</p>
+      </ion-card-content>
+      <ion-button fill="clear" (click)="guardarHerramientaLocalStorage(herramienta)">Añadir</ion-button>
+    </ion-card>
+  </ng-container>
+
+
+
 </ion-content>
